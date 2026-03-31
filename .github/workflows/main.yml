@@ -1,0 +1,27 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Build Website
+        run: |
+          # Add your build commands here, e.g., npm install && npm run build
+          echo "Building website..."
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy Website
+        run: |
+          # Add your deployment commands here, e.g., npm run deploy
+          echo "Deploying website..."
